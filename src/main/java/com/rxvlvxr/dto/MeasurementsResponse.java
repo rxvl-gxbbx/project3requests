@@ -2,6 +2,7 @@ package com.rxvlvxr.dto;
 
 import java.util.List;
 
+// best practice
 public class MeasurementsResponse {
     private List<MeasurementDTO> measurements;
 

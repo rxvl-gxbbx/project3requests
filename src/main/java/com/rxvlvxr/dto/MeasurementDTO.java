@@ -1,11 +1,12 @@
 package com.rxvlvxr.dto;
 
-
+// класс, который описывает все значения, которые будут отображаться (или передаваться) в теле ответа/запроса
 public class MeasurementDTO {
     private Double value;
     private Boolean raining;
     private SensorDTO sensor;
 
+    // пустор конструктор обязателен для Jackson
     public MeasurementDTO() {
     }
 

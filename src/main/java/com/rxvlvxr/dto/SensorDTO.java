@@ -4,6 +4,7 @@ package com.rxvlvxr.dto;
 public class SensorDTO {
     private String name;
 
+    // пустой класс обязателен
     public SensorDTO() {
     }
 

@@ -22,13 +22,14 @@
             <version>6.1.3</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.knowm.xchart/xchart -->
+        <!-- зависимость для построения графиков -->
         <dependency>
             <groupId>org.knowm.xchart</groupId>
             <artifactId>xchart</artifactId>
             <version>3.8.7</version>
         </dependency>
 
+        <!-- зависимость для преобразования JSON в объекты и наоборот -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>

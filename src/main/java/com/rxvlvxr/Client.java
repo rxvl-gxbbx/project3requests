@@ -9,7 +9,9 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Random;
 import java.util.Scanner;
 
+// класс который исполняет роль клиента (отправляет запросы на API)
 public class Client {
+    // в ТЗ указано 1000, но я для большей читаемости графика установил 100
     protected static final int MEASURE_COUNT = 100;
 
     public static void main(String[] args) {
@@ -35,13 +37,17 @@ public class Client {
         }
     }
 
+    // POST запрос на сервер, метод принимает URL на который будет идти запрос и само тело запроса
     private static void postRequest(String url, HttpEntity<?> request) throws HttpClientErrorException {
         final RestTemplate restTemplate = new RestTemplate();
         restTemplate.postForObject(url, request, String.class);
     }
 
+    // регистрация сенсора, в параметре передается DTO сенсора, так как именно эти поля соответсвуют JSON наших запросов
     private static void registerSensor(SensorDTO sensorDTO) throws HttpClientErrorException {
+        // указываем URL
         final String url = "http://localhost:8080/sensors/registration";
+        // конфертируем объект в тело запроса
         final HttpEntity<SensorDTO> request = new HttpEntity<>(sensorDTO);
         postRequest(url, request);
     }
@@ -52,6 +58,7 @@ public class Client {
         final double minTemperature = 0.0;
         final double maxTemperature = 50.0;
 
+        // отправляем 1000 запросов со случайными значениями
         for (int i = 0; i < MEASURE_COUNT; i++) {
             MeasurementDTO measurementDTO = new MeasurementDTO(random.nextDouble() * maxTemperature - minTemperature, random.nextBoolean(), sensorDTO);
             HttpEntity<MeasurementDTO> request = new HttpEntity<>(measurementDTO);
